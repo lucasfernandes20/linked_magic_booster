@@ -1,0 +1,11 @@
+<header class="py-3 px-10 flex items-center justify-between relative">
+	<img priority class="object-cover w-[200px] h-[65px] select-none" ngSrc="/assets/logo/logo_wide.png" width="200" height="65" />
+	<ul class="flex items-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+		<li routerLinkActive="active">
+			<a class="text-foreground/80 hover:text-foreground hover:scale-105" [routerLink]="['/']">Coleções</a>
+		</li>
+		<li>
+			<a class="text-foreground/80 hover:text-foreground hover:scale-105" [routerLink]="['/my-decks']">Minhas cartas</a>
+		</li>
+	</ul>
+</header>
