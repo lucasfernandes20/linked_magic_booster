@@ -1,0 +1,19 @@
+<div class="w-full">
+    <form [formGroup]="form" class="w-full flex items-center gap-4">
+      <label for="name" class="w-full flex-grow">
+        <input type="text" id="name" name="name" formControlName="name" placeholder="Pesquisar nome..." class="w-full bg-input h-12 p-3 rounded-md outline-primary focus:outline-none focus:outline-primary focus:outline-1" />
+      </label>
+      <label for="magicBlocks">
+        <select id="magicBlocks" name="magicBlocks" class="w-max px-12 h-12 rounded-md bg-input focus:outline-none focus:outline-primary focus:outline-1">
+          <option value="block1">Amonkhet</option>
+          <option value="block2">Ixalan</option>
+          <option value="block3">Zendikar</option>
+          <option value="block3">Ravnica</option>
+          <option value="block3">Onslaught</option>
+        </select>
+      </label>
+      <button type="submit" class="h-12 aspect-square bg-primary rounded-md flex items-center justify-center">
+        <span class="material-icons text-white">search</span>
+      </button>
+    </form>
+</div>
