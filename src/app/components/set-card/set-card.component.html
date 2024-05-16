@@ -1,16 +1,14 @@
 
-<div class="bg-accent rounded-md h-full p-2">
+<div class="bg-accent rounded-md h-full p-2 cursor-pointer" routerLinkActive="active" [routerLink]="['/booster/', set.code.toLowerCase()]">
 
   <div class="flex items-center justify-between py-2">
     <div class="flex items-center gap-2">
       <span class="material-symbols-outlined">bolt</span>
-      <h1 class="font-bold">{{set.name}}</h1>
+      <h1 class="font-bold text-lg">{{set.name}}</h1>
     </div>
-    <h2>{{set.releaseDate}}</h2>
+    <h2>{{releaseDateBrazillianFormat}}</h2>
   </div>
 
-  <h3 class="text-primary font-bold">{{set.block || 'Sem bloco'}}</h3>
+  <h3 class="text-primary font-bold"><span class="font-normal">Bloco: </span>{{set.block || 'Sem bloco'}}</h3>
 
-  <!-- <h2 *ngFor="let booter in boosterArray">{{booter}}</h2> -->
-  <h2>{{set.border ? set.border : 'Sem borda'}}</h2>
 </div>

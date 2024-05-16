@@ -1,0 +1,8 @@
+<div class="rounded-md flex items-start gap-2 bg-accent h-full">
+  <img ngSrc="{{card.imageUrl}}" width="192" height="256" alt="{{card.name}}" class="w-48 h-64" priority />
+  <div class="p-2 flex flex-col gap-1">
+    <h2>{{card.name}}</h2>
+    <p class="text-sm">{{card.manaCost}}</p>
+    <p class="text-sm text-muted-foreground">{{card.text}}</p>
+  </div>
+</div>

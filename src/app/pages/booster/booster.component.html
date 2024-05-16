@@ -1,0 +1,15 @@
+<app-header></app-header>
+<main class="container h-[calc(100vh-65px-24px)]">
+    <div *ngIf="!this.isLoading && !boosterCards.length" class="w-full flex flex-col gap-6 items-center justify-center h-full py-36">
+      <div class="shadow-2xl w-full max-w-96 flex-grow bg-accent p-4 flex items-center justify-center rounded-sm cursor-pointer">
+        <img src="assets/logo/logo_square.png" alt="Booster" class="w-full h-96 object-contain rounded-md select-none">
+      </div>
+      <button (click)="openBooster()" type="button" class="bg-primary w-full max-w-96 px-4 py-2 rounded-md text-muted font-bold">Abrir booster</button>
+    </div>
+
+    <div *ngIf="this.isLoading && !boosterCards">isLoading</div>
+
+    <div *ngIf="!this.isLoading && !!boosterCards.length" class="grid grid-cols-3 gap-3 py-12">
+      <app-booster-card *ngFor="let card of boosterCards" [card]="card"></app-booster-card>
+    </div>
+</main>

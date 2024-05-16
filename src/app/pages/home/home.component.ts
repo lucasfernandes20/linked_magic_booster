@@ -24,22 +24,19 @@ export class HomeComponent {
 	constructor(private magicService: MagicService) {}
 
 	handleFormSubmission(formData: { block: string; name: string | null }) {
-		console.log('Form Data:', formData);
 		this.getSets(formData.block, formData.name || '');
-		// Faça o que quiser com os dados do formulário aqui
 	}
 
 	getSets(block: string, name: string = '') {
 		const request = {
 			page: 1,
-			pageSize: 8,
+			pageSize: 100,
 			name,
 			block,
 		};
 
-		const a = this.magicService
+		this.magicService
 			.getSets(request)
 			.subscribe((data) => (this.sets = data.sets));
-		console.log(a);
 	}
 }
