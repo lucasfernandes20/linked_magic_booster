@@ -9,7 +9,7 @@
 
     <div *ngIf="this.isLoading && !boosterCards">isLoading</div>
 
-    <div *ngIf="!this.isLoading && !!boosterCards.length" class="grid grid-cols-3 gap-3 py-12">
+    <div *ngIf="!this.isLoading && !!boosterCards.length" class="flex flex-col laptop:grid laptop:grid-cols-3 gap-3 py-12">
       <app-booster-card *ngFor="let card of boosterCards" [card]="card"></app-booster-card>
     </div>
 </main>

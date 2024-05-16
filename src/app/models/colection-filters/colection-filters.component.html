@@ -1,10 +1,10 @@
 <div class="w-full">
-    <form [formGroup]="form" class="w-full flex items-center gap-4" (submit)="$event.preventDefault()">
+    <form [formGroup]="form" class="w-full flex flex-col tablet:flex-row items-center gap-4" (submit)="$event.preventDefault()">
       <label for="name" class="w-full flex-grow">
         <input type="text" id="name" name="name" formControlName="name" placeholder="Pesquisar nome..." class="w-full bg-input h-12 p-3 rounded-md outline-primary focus:outline-none focus:outline-primary focus:outline-1" />
       </label>
-      <label for="magicBlocks" class="relative">
-        <select id="magicBlocks" name="block" formControlName="block" class="w-max px-12 h-12 rounded-md bg-input focus:outline-none focus:outline-primary focus:outline-1">
+      <label for="magicBlocks" class="relative w-full tablet:w-auto">
+        <select id="magicBlocks" name="block" formControlName="block" class="w-full tablet:w-max px-12 h-12 rounded-md bg-input focus:outline-none focus:outline-primary focus:outline-1">
           <option [value]="null" class="opacity-40 text-primary" disabled>Pesquisar bloco...</option>
           <option value="Amonkhet">Amonkhet</option>
           <option value="Ixalan">Ixalan</option>
@@ -14,7 +14,7 @@
         </select>
         <p class="absolute mt-2 text-destructive text-sm" *ngIf="form.controls['block'].touched && form.controls['block'].invalid">Você deve escolher um bloco</p>
       </label>
-      <button type="submit" class="h-12 aspect-square bg-primary rounded-md flex items-center justify-center" (click)="submitForm()">
+      <button type="submit" class="h-12 w-full tablet:w-12 tablet:aspect-square bg-primary rounded-md flex items-center justify-center" (click)="submitForm()">
         <span class="material-icons text-white">search</span>
       </button>
     </form>

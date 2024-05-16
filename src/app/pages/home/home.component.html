@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="container mt-10">
   <app-colection-filters (formSubmitted)="handleFormSubmission($event)"></app-colection-filters>
-  <div *ngIf="!!sets.length" class="w-full grid grid-cols-2 gap-4 py-12">
+  <div *ngIf="!!sets.length" class="w-full flex flex-col tablet:grid tablet:grid-cols-2 gap-4 py-12">
       <app-set-card *ngFor="let set of sets" [set]="set" ></app-set-card>
   </div>
   <p *ngIf="!sets.length" class="text-muted-foreground text-center mt-12">Escolha um bloco para ver as coleções.</p>
