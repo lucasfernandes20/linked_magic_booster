@@ -45,7 +45,9 @@ Para iniciar a aplicação em ambiente de desenvolvimento, execute:
 npm run start
 ```
 
-A aplicação estará disponível em `em breve`.
+### Deploy
+
+A aplicação estará disponível (Deploy) [aqui](https://linked-magic-booster.vercel.app/).
 
 ### Navegação
 
