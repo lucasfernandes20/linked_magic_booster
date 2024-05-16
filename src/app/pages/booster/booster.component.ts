@@ -5,6 +5,7 @@ import { BoosterCardComponent } from '@components/booster-card/booster-card.comp
 import { HeaderComponent } from '@models/header/header.component';
 import { Card } from '@services/magic.interface';
 import { MagicService } from '@services/magic.service';
+import { catchError, finalize, of } from 'rxjs';
 
 @Component({
 	selector: 'app-booster',
@@ -34,23 +35,28 @@ export class BoosterComponent implements OnInit {
 
 	openBooster() {
 		this.isLoading = true;
-		try {
-			this.magicService.openBooster(this.setCode).subscribe((data) => {
-				console.log(data);
-				const { cards } = data;
-				const onlyCreatures = cards
-					.filter((card) => card.types.includes('Creature'))
-					.splice(0, 15 - this.boosterCards.length);
-				this.boosterCards.push(...onlyCreatures);
-				if (this.boosterCards.length < 15) {
-					this.openBooster();
+		this.magicService
+			.openBooster(this.setCode)
+			.pipe(
+				catchError((error) => {
+					this.router.navigate(['/']);
+					return of(null); // handle the error and return a fallback value
+				}),
+				finalize(() => {
+					this.isLoading = false;
+				})
+			)
+			.subscribe((data) => {
+				if (data) {
+					const { cards } = data;
+					const onlyCreatures = cards
+						.filter((card) => card.types.includes('Creature'))
+						.splice(0, 15 - this.boosterCards.length);
+					this.boosterCards.push(...onlyCreatures);
+					if (this.boosterCards.length < 15) {
+						this.openBooster();
+					}
 				}
 			});
-		} catch (error) {
-			console.log('erro');
-			this.router.navigate(['/']);
-		} finally {
-			this.isLoading = false;
-		}
 	}
 }
