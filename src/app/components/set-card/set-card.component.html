@@ -1,0 +1,16 @@
+
+<div class="bg-accent rounded-md h-full p-2">
+
+  <div class="flex items-center justify-between py-2">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined">bolt</span>
+      <h1 class="font-bold">{{set.name}}</h1>
+    </div>
+    <h2>{{set.releaseDate}}</h2>
+  </div>
+
+  <h3 class="text-primary font-bold">{{set.block || 'Sem bloco'}}</h3>
+
+  <!-- <h2 *ngFor="let booter in boosterArray">{{booter}}</h2> -->
+  <h2>{{set.border ? set.border : 'Sem borda'}}</h2>
+</div>

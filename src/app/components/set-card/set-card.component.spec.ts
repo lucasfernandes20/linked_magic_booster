@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextInputComponent } from './text-input.component';
+import { SetCardComponent } from './set-card.component';
 
-describe('TextInputComponent', () => {
-  let component: TextInputComponent;
-  let fixture: ComponentFixture<TextInputComponent>;
+describe('SetCardComponent', () => {
+  let component: SetCardComponent;
+  let fixture: ComponentFixture<SetCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextInputComponent]
+      imports: [SetCardComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TextInputComponent);
+    fixture = TestBed.createComponent(SetCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,17 +1,36 @@
-import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-colection-filters',
-  standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './colection-filters.component.html',
+	selector: 'app-colection-filters',
+	standalone: true,
+	imports: [ReactiveFormsModule, CommonModule],
+	templateUrl: './colection-filters.component.html',
 })
 export class ColectionFiltersComponent {
-  private formBuilderService = inject(FormBuilder);
+	private formBuilderService = inject(FormBuilder);
 
-  protected form = this.formBuilderService.group({
-    name: [''],
-    block: ['', Validators.required],
-  });
+	@Output() formSubmitted = new EventEmitter<{
+		name: string | null;
+		block: string;
+	}>();
+
+	protected form = this.formBuilderService.group({
+		name: [''],
+		block: [null, Validators.required],
+	});
+
+	submitForm() {
+		if (this.form.valid) {
+			const emitter = {
+				name: this.form.value.name || null,
+				block: this.form.value.block || '',
+			};
+			this.formSubmitted.emit(emitter);
+			this.form.reset();
+		} else {
+			this.form.controls['block'].markAsTouched();
+		}
+	}
 }
